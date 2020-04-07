@@ -22,8 +22,7 @@ class encrypterConfigurations extends abstractServiceConfigurations {
 
         $this->key = getenv('MINIMALISM_SERVICE_ENCRYPTER_KEY');
 
-        $length = getenv('MINIMALISM_SERVICE_ENCRYPTER_LENGTH');
-        if ($length === null){
+        if (!$length = getenv('MINIMALISM_SERVICE_ENCRYPTER_LENGTH')){
             $length = 18;
         }
         $this->length = $length;

@@ -12,8 +12,8 @@ class encrypter extends abstractService {
     /** @var encrypterConfigurations  */
     private encrypterConfigurations $configData;
 
-    /** @var Hashids */
-    private Hashids $hashids;
+    /** @var Hashids|null */
+    private ?Hashids $hashids=null;
 
     /**
      * encrypter constructor.
@@ -25,8 +25,14 @@ class encrypter extends abstractService {
 
         /** @noinspection PhpFieldAssignmentTypeMismatchInspection */
         $this->configData = $configData;
+    }
 
-        $this->hashids = new Hashids($this->configData->key, $this->configData->length);
+    private function hashids() : Hashids {
+        if ($this->hashids === null) {
+            $this->hashids = new Hashids($this->configData->key, $this->configData->length);
+        }
+
+        return $this->hashids;
     }
 
     /**
@@ -34,7 +40,7 @@ class encrypter extends abstractService {
      * @return string
      */
     public function encryptId(int $id): string {
-        return $this->hashids->encodeHex($id);
+        return $this->hashids()->encodeHex($id);
     }
 
     /**
@@ -42,6 +48,6 @@ class encrypter extends abstractService {
      * @return int
      */
     public function decryptId(string $encryptedId): int {
-        return (int)$this->hashids->decodeHex($encryptedId);
+        return (int)$this->hashids()->decodeHex($encryptedId);
     }
 }
