@@ -50,4 +50,28 @@ class encrypter extends abstractService {
     public function decryptId(string $encryptedId): int {
         return (int)$this->hashids()->decodeHex($encryptedId);
     }
+
+    /**
+     * @param string $id
+     * @param string $key
+     * @param int $length
+     * @return string
+     */
+    public function encryptByKey(string $id, string $key, int $length) : string {
+        $hashid = new Hashids($key, $length);
+
+        return $hashid->encodeHex($id);
+    }
+
+    /**
+     * @param string $encryptedId
+     * @param string $key
+     * @param int $length
+     * @return string
+     */
+    public function decryptByKey(string $encryptedId, string $key, int $length) : string {
+        $hashid = new Hashids($key, $length);
+
+        return $hashid->decodeHex($encryptedId);
+    }
 }
