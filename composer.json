@@ -20,9 +20,17 @@
       "CarloNicora\\Minimalism\\Services\\Encrypter\\":"src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "CarloNicora\\Minimalism\\Services\\Encrypter\\Tests\\":"tests/"
+    }
+  },
   "require": {
     "php": "^7.4",
     "carlonicora/minimalism": "~11.0",
     "hashids/hashids": "~4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
   }
 }

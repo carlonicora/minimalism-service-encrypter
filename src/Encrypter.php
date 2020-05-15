@@ -1,16 +1,16 @@
 <?php /** @noinspection UnusedConstructorDependenciesInspection */
 
-namespace carlonicora\minimalism\services\encrypter;
+namespace CarloNicora\Minimalism\Services\Encrypter;
 
-use carlonicora\minimalism\core\services\abstracts\abstractService;
-use carlonicora\minimalism\core\services\factories\servicesFactory;
-use carlonicora\minimalism\core\services\interfaces\serviceConfigurationsInterface;
-use carlonicora\minimalism\services\encrypter\configurationsS\encrypterConfigurations;
+use CarloNicora\Minimalism\Core\Services\abstracts\AbstractService;
+use CarloNicora\Minimalism\Core\Services\factories\ServicesFactory;
+use CarloNicora\Minimalism\Core\Services\interfaces\ServiceConfigurationsInterface;
+use CarloNicora\Minimalism\Services\Encrypter\Configurations\EncrypterConfigurations;
 use Hashids\Hashids;
 
-class encrypter extends abstractService {
-    /** @var encrypterConfigurations  */
-    private encrypterConfigurations $configData;
+class Encrypter extends abstractService {
+    /** @var EncrypterConfigurations  */
+    private EncrypterConfigurations $configData;
 
     /** @var Hashids|null */
     private ?Hashids $hashids=null;
@@ -57,7 +57,7 @@ class encrypter extends abstractService {
      * @param int $length
      * @return string
      */
-    public function encryptByKey(string $id, string $key, int $length) : string {
+    public function encryptByKey(string $id, string $key, int $length=18) : string {
         $hashid = new Hashids($key, $length);
 
         return $hashid->encodeHex($id);
@@ -69,7 +69,7 @@ class encrypter extends abstractService {
      * @param int $length
      * @return string
      */
-    public function decryptByKey(string $encryptedId, string $key, int $length) : string {
+    public function decryptByKey(string $encryptedId, string $key, int $length=18) : string {
         $hashid = new Hashids($key, $length);
 
         return $hashid->decodeHex($encryptedId);
