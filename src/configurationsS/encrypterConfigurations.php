@@ -1,5 +1,5 @@
 <?php
-namespace carlonicora\minimalism\services\encrypter\configurations;
+namespace carlonicora\minimalism\services\encrypter\configurationsS;
 
 use carlonicora\minimalism\core\services\exceptions\configurationException;
 use carlonicora\minimalism\core\services\abstracts\abstractServiceConfigurations;

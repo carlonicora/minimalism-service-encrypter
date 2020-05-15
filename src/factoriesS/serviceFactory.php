@@ -1,9 +1,9 @@
 <?php
-namespace carlonicora\minimalism\services\encrypter\factories;
+namespace carlonicora\minimalism\services\encrypter\factoriesS;
 
 use carlonicora\minimalism\core\services\exceptions\configurationException;
 use carlonicora\minimalism\core\services\abstracts\abstractServiceFactory;
-use carlonicora\minimalism\services\encrypter\configurations\encrypterConfigurations;
+use carlonicora\minimalism\services\encrypter\configurationsS\encrypterConfigurations;
 use carlonicora\minimalism\services\encrypter\encrypter;
 use carlonicora\minimalism\core\services\factories\servicesFactory;
 

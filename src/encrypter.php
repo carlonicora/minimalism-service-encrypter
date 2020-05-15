@@ -5,7 +5,7 @@ namespace carlonicora\minimalism\services\encrypter;
 use carlonicora\minimalism\core\services\abstracts\abstractService;
 use carlonicora\minimalism\core\services\factories\servicesFactory;
 use carlonicora\minimalism\core\services\interfaces\serviceConfigurationsInterface;
-use carlonicora\minimalism\services\encrypter\configurations\encrypterConfigurations;
+use carlonicora\minimalism\services\encrypter\configurationsS\encrypterConfigurations;
 use Hashids\Hashids;
 
 class encrypter extends abstractService {
