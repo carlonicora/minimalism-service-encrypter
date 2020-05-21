@@ -4,7 +4,7 @@ namespace CarloNicora\Minimalism\Services\Encrypter\Configurations;
 use CarloNicora\Minimalism\Core\Services\Exceptions\ConfigurationException;
 use CarloNicora\Minimalism\Core\Services\Abstracts\AbstractServiceConfigurations;
 
-class EncrypterConfigurations extends abstractServiceConfigurations {
+class EncrypterConfigurations extends AbstractServiceConfigurations {
     /** @var string */
     public string $key;
 
@@ -13,7 +13,7 @@ class EncrypterConfigurations extends abstractServiceConfigurations {
 
     /**
      * mailingConfigurations constructor.
-     * @throws configurationException
+     * @throws ConfigurationException
      */
     public function __construct() {
         if (!($this->key = getenv('MINIMALISM_SERVICE_ENCRYPTER_KEY'))){

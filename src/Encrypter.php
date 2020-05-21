@@ -2,13 +2,13 @@
 
 namespace CarloNicora\Minimalism\Services\Encrypter;
 
-use CarloNicora\Minimalism\Core\Services\abstracts\AbstractService;
-use CarloNicora\Minimalism\Core\Services\factories\ServicesFactory;
-use CarloNicora\Minimalism\Core\Services\interfaces\ServiceConfigurationsInterface;
+use CarloNicora\Minimalism\Core\Services\Abstracts\AbstractService;
+use CarloNicora\Minimalism\Core\Services\Factories\ServicesFactory;
+use CarloNicora\Minimalism\Core\Services\Interfaces\ServiceConfigurationsInterface;
 use CarloNicora\Minimalism\Services\Encrypter\Configurations\EncrypterConfigurations;
 use Hashids\Hashids;
 
-class Encrypter extends abstractService {
+class Encrypter extends AbstractService {
     /** @var EncrypterConfigurations  */
     private EncrypterConfigurations $configData;
 
@@ -17,10 +17,10 @@ class Encrypter extends abstractService {
 
     /**
      * encrypter constructor.
-     * @param serviceConfigurationsInterface $configData
-     * @param servicesFactory $services
+     * @param ServiceConfigurationsInterface $configData
+     * @param ServicesFactory $services
      */
-    public function __construct(serviceConfigurationsInterface $configData, servicesFactory $services) {
+    public function __construct(ServiceConfigurationsInterface $configData, ServicesFactory $services) {
         parent::__construct($configData, $services);
 
         /** @noinspection PhpFieldAssignmentTypeMismatchInspection */
