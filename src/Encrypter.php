@@ -5,10 +5,11 @@ namespace CarloNicora\Minimalism\Services\Encrypter;
 use CarloNicora\Minimalism\Core\Services\Abstracts\AbstractService;
 use CarloNicora\Minimalism\Core\Services\Factories\ServicesFactory;
 use CarloNicora\Minimalism\Core\Services\Interfaces\ServiceConfigurationsInterface;
+use CarloNicora\Minimalism\Interfaces\EncrypterInterface;
 use CarloNicora\Minimalism\Services\Encrypter\Configurations\EncrypterConfigurations;
 use Hashids\Hashids;
 
-class Encrypter extends AbstractService {
+class Encrypter extends AbstractService implements EncrypterInterface {
     /** @var EncrypterConfigurations  */
     private EncrypterConfigurations $configData;
 
