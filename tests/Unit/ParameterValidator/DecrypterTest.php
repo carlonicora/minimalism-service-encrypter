@@ -5,9 +5,14 @@ use CarloNicora\Minimalism\Services\Encrypter\Encrypter;
 use CarloNicora\Minimalism\Services\Encrypter\Factories\ServiceFactory;
 use CarloNicora\Minimalism\Services\Encrypter\ParameterValidator\Decrypter;
 use CarloNicora\Minimalism\Services\Encrypter\Tests\Abstracts\AbstractTestCase;
+use Exception;
 
 class DecrypterTest extends AbstractTestCase
 {
+    /**
+     * @return Decrypter
+     * @throws Exception
+     */
     public function testParameterDecryption() : Decrypter
     {
         if (false === getenv('MINIMALISM_SERVICE_ENCRYPTER_KEY')) {

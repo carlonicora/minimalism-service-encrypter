@@ -5,6 +5,7 @@ use CarloNicora\Minimalism\Core\Services\Exceptions\ConfigurationException;
 use CarloNicora\Minimalism\Services\Encrypter\Encrypter;
 use CarloNicora\Minimalism\Services\Encrypter\Factories\ServiceFactory;
 use CarloNicora\Minimalism\Services\Encrypter\Tests\Abstracts\AbstractTestCase;
+use Exception;
 
 class EncrypterTest extends AbstractTestCase
 {
@@ -12,11 +13,15 @@ class EncrypterTest extends AbstractTestCase
     {
         unset($_ENV['MINIMALISM_SERVICE_ENCRYPTER_KEY']);
 
-        $this->expectExceptionCode(ConfigurationException::MISSING_REQUIRED_CONFIGURATION);
+        $this->expectException(ConfigurationException::class);
 
         $this->services->loadService(ServiceFactory::class);
     }
 
+    /**
+     * @return Encrypter
+     * @throws Exception
+     */
     public function testEncrypterInitialisation() : Encrypter
     {
         if (false === getenv('MINIMALISM_SERVICE_ENCRYPTER_KEY')) {

@@ -1,19 +1,19 @@
 <?php
 namespace CarloNicora\Minimalism\Services\Encrypter\ParameterValidator;
 
-use CarloNicora\Minimalism\Services\Encrypter\Encrypter;
+use CarloNicora\Minimalism\Interfaces\EncrypterInterface;
 use CarloNicora\Minimalism\Services\ParameterValidator\Interfaces\DecrypterInterface;
 
 class Decrypter implements DecrypterInterface
 {
-    /** @var Encrypter  */
-    private Encrypter $encrypter;
+    /** @var EncrypterInterface  */
+    private EncrypterInterface $encrypter;
 
     /**
      * Decrypter constructor.
-     * @param Encrypter $encrypter
+     * @param EncrypterInterface|null $encrypter
      */
-    public function __construct(Encrypter $encrypter)
+    public function __construct(?EncrypterInterface $encrypter)
     {
         $this->encrypter = $encrypter;
     }

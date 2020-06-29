@@ -17,7 +17,7 @@ class EncrypterConfigurations extends AbstractServiceConfigurations {
      */
     public function __construct() {
         if (!($this->key = getenv('MINIMALISM_SERVICE_ENCRYPTER_KEY'))){
-            throw new ConfigurationException('encrypter', 'MINIMALISM_SERVICE_ENCRYPTER_KEY is a required configuration', ConfigurationException::MISSING_REQUIRED_CONFIGURATION);
+            throw new ConfigurationException('MINIMALISM_SERVICE_ENCRYPTER_KEY is a required configuration');
         }
 
         if (!($this->length = getenv('MINIMALISM_SERVICE_ENCRYPTER_LENGTH'))){
