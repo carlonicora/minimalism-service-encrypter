@@ -2,35 +2,35 @@
 
 namespace CarloNicora\Minimalism\Services\Encrypter;
 
-use CarloNicora\Minimalism\Core\Services\Abstracts\AbstractService;
-use CarloNicora\Minimalism\Core\Services\Factories\ServicesFactory;
-use CarloNicora\Minimalism\Core\Services\Interfaces\ServiceConfigurationsInterface;
-use CarloNicora\Minimalism\Interfaces\EncrypterInterface;
-use CarloNicora\Minimalism\Services\Encrypter\Configurations\EncrypterConfigurations;
+use CarloNicora\Minimalism\Interfaces\ServiceInterface;
 use Hashids\Hashids;
 
-class Encrypter extends AbstractService implements EncrypterInterface {
-    /** @var EncrypterConfigurations  */
-    private EncrypterConfigurations $configData;
-
+class Encrypter implements ServiceInterface
+{
     /** @var Hashids|null */
     private ?Hashids $hashids=null;
 
+    public function __construct(
+        private string $MINIMALISM_SERVICE_ENCRYPTER_KEY,
+        private ?int $MINIMALISM_SERVICE_ENCRYPTER_LENGTH=18,
+    ) {}
+
     /**
-     * encrypter constructor.
-     * @param ServiceConfigurationsInterface $configData
-     * @param ServicesFactory $services
+     *
      */
-    public function __construct(ServiceConfigurationsInterface $configData, ServicesFactory $services) {
-        parent::__construct($configData, $services);
+    public function initialise(): void{}
 
-        /** @noinspection PhpFieldAssignmentTypeMismatchInspection */
-        $this->configData = $configData;
-    }
+    /**
+     *
+     */
+    public function destroy(): void{}
 
+    /**
+     * @return Hashids
+     */
     private function hashids() : Hashids {
         if ($this->hashids === null) {
-            $this->hashids = new Hashids($this->configData->key, $this->configData->length);
+            $this->hashids = new Hashids($this->MINIMALISM_SERVICE_ENCRYPTER_KEY, $this->MINIMALISM_SERVICE_ENCRYPTER_LENGTH);
         }
 
         return $this->hashids;
