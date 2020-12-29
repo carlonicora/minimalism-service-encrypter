@@ -13,8 +13,12 @@ class Encrypter implements ServiceInterface, EncrypterInterface
 
     public function __construct(
         private string $MINIMALISM_SERVICE_ENCRYPTER_KEY,
-        private ?int $MINIMALISM_SERVICE_ENCRYPTER_LENGTH=18,
-    ) {}
+        private ?int $MINIMALISM_SERVICE_ENCRYPTER_LENGTH=null,
+    ) {
+        if ($this->MINIMALISM_SERVICE_ENCRYPTER_LENGTH === null){
+            $this->MINIMALISM_SERVICE_ENCRYPTER_LENGTH = 18;
+        }
+    }
 
     /**
      *
