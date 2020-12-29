@@ -2,10 +2,11 @@
 
 namespace CarloNicora\Minimalism\Services\Encrypter;
 
+use CarloNicora\Minimalism\Interfaces\EncrypterInterface;
 use CarloNicora\Minimalism\Interfaces\ServiceInterface;
 use Hashids\Hashids;
 
-class Encrypter implements ServiceInterface
+class Encrypter implements ServiceInterface, EncrypterInterface
 {
     /** @var Hashids|null */
     private ?Hashids $hashids=null;
