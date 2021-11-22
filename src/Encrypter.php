@@ -1,5 +1,4 @@
-<?php /** @noinspection UnusedConstructorDependenciesInspection */
-
+<?php
 namespace CarloNicora\Minimalism\Services\Encrypter;
 
 use CarloNicora\Minimalism\Interfaces\EncrypterInterface;
@@ -60,9 +59,7 @@ class Encrypter implements ServiceInterface, EncrypterInterface
      * @return string
      */
     public function encryptByKey(string $id, string $key, int $length=18) : string {
-        $hashid = new Hashids($key, $length);
-
-        return $hashid->encodeHex($id);
+        return (new Hashids($key, $length))->encodeHex($id);
     }
 
     /**
@@ -72,8 +69,6 @@ class Encrypter implements ServiceInterface, EncrypterInterface
      * @return string
      */
     public function decryptByKey(string $encryptedId, string $key, int $length=18) : string {
-        $hashid = new Hashids($key, $length);
-
-        return $hashid->decodeHex($encryptedId);
+        return (new Hashids($key, $length))->decodeHex($encryptedId);
     }
 }
