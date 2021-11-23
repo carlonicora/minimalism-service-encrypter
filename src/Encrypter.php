@@ -1,7 +1,7 @@
 <?php
 namespace CarloNicora\Minimalism\Services\Encrypter;
 
-use CarloNicora\Minimalism\Interfaces\EncrypterInterface;
+use CarloNicora\Minimalism\Interfaces\Encrypter\Interfaces\EncrypterInterface;
 use CarloNicora\Minimalism\Interfaces\ServiceInterface;
 use Hashids\Hashids;
 
