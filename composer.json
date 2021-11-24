@@ -22,8 +22,8 @@
   },
   "require": {
     "php": ">=8.0",
-    "carlonicora/minimalism": "~13.0.1",
-    "carlonicora/minimalism-interface-encrypter": "~1.0.0",
+    "carlonicora/minimalism": "ver-13-alpha",
+    "carlonicora/minimalism-interface-encrypter": "ver-13-alpha",
     "hashids/hashids": "~4.0"
   }
 }
