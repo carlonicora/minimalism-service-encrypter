@@ -19,14 +19,13 @@ class Encrypter extends AbstractService implements EncrypterInterface
     }
 
     /**
-     *
+     * @return string|null
      */
-    public function initialise(): void{}
-
-    /**
-     *
-     */
-    public function destroy(): void{}
+    public static function getBaseInterface(
+    ): ?string
+    {
+        return EncrypterInterface::class;
+    }
 
     /**
      * @return Hashids
