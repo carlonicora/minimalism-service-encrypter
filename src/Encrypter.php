@@ -1,11 +1,11 @@
 <?php
 namespace CarloNicora\Minimalism\Services\Encrypter;
 
+use CarloNicora\Minimalism\Abstracts\AbstractService;
 use CarloNicora\Minimalism\Interfaces\Encrypter\Interfaces\EncrypterInterface;
-use CarloNicora\Minimalism\Interfaces\ServiceInterface;
 use Hashids\Hashids;
 
-class Encrypter implements ServiceInterface, EncrypterInterface
+class Encrypter extends AbstractService implements EncrypterInterface
 {
     /** @var Hashids|null */
     private ?Hashids $hashids=null;
@@ -13,7 +13,10 @@ class Encrypter implements ServiceInterface, EncrypterInterface
     public function __construct(
         private string $MINIMALISM_SERVICE_ENCRYPTER_KEY,
         private ?int $MINIMALISM_SERVICE_ENCRYPTER_LENGTH=18,
-    ) {}
+    )
+    {
+        parent::__construct();
+    }
 
     /**
      *
