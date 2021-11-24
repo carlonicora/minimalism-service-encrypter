@@ -1,7 +1,7 @@
 {
   "name": "carlonicora/minimalism-service-encrypter",
   "description": "Id encrypter service for minimalism",
-  "version": "3.0.5-alpha5",
+  "version": "4.0.0-alpha1",
   "homepage": "https://carlonicora.com",
   "time": "2019-05-14",
   "license": "MIT",
@@ -22,8 +22,8 @@
   },
   "require": {
     "php": ">=8.0",
-    "carlonicora/minimalism": "dev-ver-13-alpha",
-    "carlonicora/minimalism-interface-encrypter": "dev-ver-13-alpha",
+    "carlonicora/minimalism": "~13.0",
+    "carlonicora/minimalism-interface-encrypter": "~1.0",
     "hashids/hashids": "~4.0"
   }
 }
