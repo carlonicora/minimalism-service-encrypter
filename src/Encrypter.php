@@ -15,7 +15,6 @@ class Encrypter extends AbstractService implements EncrypterInterface
         private ?int $MINIMALISM_SERVICE_ENCRYPTER_LENGTH=18,
     )
     {
-        parent::__construct();
     }
 
     /**
